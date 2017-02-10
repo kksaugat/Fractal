@@ -1,20 +1,20 @@
-Meeting Minutes for _______________:
+Meeting Minutes for 90min:
 
 Meeting Attendance:
-  *
-  *
-  *
+  * Craig Kaiser
+  * Declan Sidoti
+  * Saugat Khadka
 
 Tasks completed since last meeting:
-  *
-  *
+  * Set up Git
+  * Met one another
 
 Tasks started, but not completed, since last meeting:
-  *
-  *
+  * Becoming teammates
+  * Look at project
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *
+  * N/A
   *
 
 Schedule for the next week's set of pair programming meetings:
