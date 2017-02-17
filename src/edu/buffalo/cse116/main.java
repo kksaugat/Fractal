@@ -47,7 +47,31 @@ public class main {
 //		Y-coordinate range from -1.3 to 1.3
 	}
 
-	public void Julia(){
+	public int Julia(double x, double y){
+		if(x < -1.7 || x > 1.7 || y < -1.0 || y > 1.0){ //checks to see if coordinates are within acceptable range
+			return 0;
+		}
+		else{
+		double xp;
+		double yp;
+		double dist = 0;
+		int passes = 0;
+		
+			while(dist <= 4 && passes < 255){
+				xp = Math.pow(x, 2) - Math.pow(y, 2) + -.72689;
+				yp = (2 * x) * y + .188887;		
+				passes++;
+				dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2)); //pythag for distance
+				x = xp;
+				y = yp;
+			
+			}
+			int escapeTime = passes;
+			passes= 0;
+			return escapeTime;
+		
+		}
+		
 //		x' = x² - y² + -0.72689
 //		y' = 2 * x * y + 0.188887
 //		   where x and y are the values of xCalc and yCalc prior to this update and x' and y' are their values after the update.

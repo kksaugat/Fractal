@@ -17,5 +17,13 @@ public class mainTest {
 		assertEquals("should be false if out of range", result2, 0); //What should it return for out of range value?
 	}
 
+	@Test
+	public void testJulia(){
+		//ranges x(-1.7 : 1.7) y(-1.0 : 1.0)	
+		main m = new main();
+		int result = m.Julia(-1.0, 1.0);
+		int result2 = m.Julia(-2.0 , 2.0);
+		assertEquals(2, result);
+		assertEquals(0, result2); //should return 0 since the x,y values are out of range
+	}
 }
-le
