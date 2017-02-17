@@ -1,0 +1,21 @@
+Meeting Minutes for 30min:
+
+Meeting Attendance:
+  * Craig Kaiser
+  * Ryan Niedzialowski
+  * Saugat Khadka
+
+Tasks completed since last meeting:
+  * Tasking for remainder of phase 1
+  * Met Ryan
+
+Tasks started, but not completed, since last meeting:
+  * Created method set ups
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * Create tests for our methods
+  *
+
+Schedule for the next week's set of pair programming meetings:
+  * Will meet sometime next week prior to phase 1 being due
+  *
