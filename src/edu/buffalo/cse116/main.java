@@ -28,7 +28,7 @@ public class main {
 			double dist=0;
 			int passes = 0;
 
-			while (dist <=4 && passes <255){
+			while (dist <=2 && passes <255){
 				xp = Math.pow(x, 2) - Math.pow(y, 2) + x;
 				yp = 2 * x + y + y;
 				dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2)); //Distance using pythag
@@ -57,7 +57,7 @@ public class main {
 		double dist = 0;
 		int passes = 0;
 		
-			while(dist <= 4 && passes < 255){
+			while(dist <= 2 && passes < 255){
 				xp = Math.pow(x, 2) - Math.pow(y, 2) + -.72689;
 				yp = (2 * x) * y + .188887;		
 				passes++;
@@ -79,7 +79,32 @@ public class main {
 //		Y-coordinate range from -1.0 to 1.0
 	}
 
-	public void BurningShip(){
+	public int BurningShip(double x, double y){
+		if(x < -1.8|| x > -1.7 || y > .025 || y < -.08 ){ 
+			return 0;
+		}
+		else{
+			double xp;
+			double yp;
+			double dist = 0;
+			int passes = 0;
+			
+				while(dist <=2 && passes < 255){
+					xp = Math.pow(x, 2) - Math.pow(y, 2) + x;
+					yp = Math.abs(2 * x * y) + y;
+					passes++;
+					dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2));
+					x = xp;
+					y = yp;
+					
+				}
+				int escapeTime = passes;
+				passes = 0;
+				return escapeTime;
+	
+		}
+		
+		
 //		x' = x² - y² + current point's x-coordinate
 //		y' = Math.abs(2 * x * y) + current point's y-coordinate
 //		   where x and y are the values of xCalc and yCalc prior to this update and x' and y' are their values after the update.
@@ -87,7 +112,29 @@ public class main {
 //		Y-coordinate range from -0.08 to 0.025
 	}
 
-	public void Fourth(){
-		//No info
+	public int Multibrot(double x, double y){
+		if(x > 1.0 || x < -1.0 || y > 1.3 || y < -1.3){
+			return 0;
+		}
+		else{
+			double xp;
+			double yp;
+			double dist = 0;
+			int passes = 0;
+			
+				while(dist <= 2 && passes < 255){
+					xp = Math.pow(x, 3) - (3 * x * Math.pow(y, 2)) + x;
+					yp = (3 * Math.pow(x, 2) * y) - Math.pow(y, 3) + y;
+					passes++;
+					dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2));
+					x = xp;
+					y = yp;
+					
+				}
+				int escapeTime = passes;
+				passes = 0;
+				return escapeTime;
+		}
+		
 	}
 }
