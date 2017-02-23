@@ -23,21 +23,19 @@ public class Main {
 			return 0;//If out of bounds return 0?
 		}
 		else{
-			double xp;   // X' 
-			double yp;   // Y'
-			double dist=0;  // Distance
+			double xCalc = x;   // X' 
+			double yCalc = y;   // Y'
+			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
 			while (dist <=2 && passes <255){ //Arbitrary values used for loop
-				xp = Math.pow(x, 2) - Math.pow(y, 2) + x; 
-				yp = 2 * x * y + y;
-				dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2)); //Distance using pythag
-				passes+=1;
-				x = xp;
-				y = yp;
+				xCalc = Math.pow(x, 2) - Math.pow(y, 2) + x; 
+				yCalc = 2 * x * y + y;
+				passes++;
+				dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); //Distance using pythag
+		
 			}
-			int escapeTime = passes;
-			passes = 0;
+			int escapeTime = passes;			
 			return escapeTime;
 		}
 //		x' = x² - y² + current point's x-coordinate
@@ -48,26 +46,25 @@ public class Main {
 	}
 	
 	public int Julia(double x, double y){
-		if (x<-1.7 || x>1.7 || y<-0.08 || y>0.025){
+		if (x<-1.7 || x>1.7 || y<-1.0 || y>1.0){
 			return 0;//If out of bounds return 0?
 		}
 		else{
-			double xp;   // X' 
-			double yp;   // Y'
-			double dist=0;  // Distance
+			double xCalc = x;   // X' 
+			double yCalc= y;   // Y'
+			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
 			while (dist <=2 && passes <255){ //Arbitrary values used for loop
-				xp = Math.pow(x, 2) - Math.pow(y, 2) - 0.72689; 
-				yp = 2 * x * y + 0.188887;
-				dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2)); //Distance using pythag
-				passes+=1;
-				x = xp;
-				y = yp;
+				xCalc = Math.pow(x, 2) - Math.pow(y, 2) - 0.72689; 
+				yCalc = 2 * x * y + 0.188887;
+				passes++;
+				dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); //Distance using pythag
+				
+				
 			}
 			int escapeTime = passes;
-			passes = 0;
-			return escapeTime;
+            return escapeTime;
 		}
 //		x' = x² - y² + -0.72689
 //		y' = 2 * x * y + 0.188887
@@ -81,22 +78,21 @@ public class Main {
 			return 0;//If out of bounds return 0?
 		}
 		else{
-			double xp;   // X' 
-			double yp;   // Y'
-			double dist=0;  // Distance
+			double xCalc = x;   // X' 
+			double yCalc = y;   // Y'
+			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
 			while (dist <=2 && passes <255){ //Arbitrary values used for loop
-				xp = Math.pow(x, 2) - Math.pow(y, 2) - x; 
-				yp = Math.abs(2 * x * y) + y;
-				dist = Math.sqrt(Math.pow(xp, 2) + Math.pow(yp, 2)); //Distance using pythag
-				passes+=1;
-				x = xp;
-				y = yp;
+				xCalc = Math.pow(x, 2) - Math.pow(y, 2) + x; 
+				yCalc = Math.abs(2 * x * y) + y;
+				passes++;
+				dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); //Distance using pythag
+				
+				
 			}
 			int escapeTime = passes;
-			passes = 0;
-			return escapeTime;
+		    return escapeTime;
 		}
 //		x' = x² - y² + current point's x-coordinate
 //		y' = Math.abs(2 * x * y) + current point's y-coordinate
@@ -110,22 +106,22 @@ public class Main {
 			return 0;
 		}
 		else{
-			double xp;
-			double yp;
-			double dist =0;
+			double xCalc = x;
+			double yCalc = y;
+			double dist =Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;
 			int passes = 0;
 			
 			while(dist<=2 && passes <255){
-				xp = Math.pow(x, 3) - (3*x*Math.pow(y, 2))+x;
-				yp = (3*Math.pow(x, 2)*y)- Math.pow(y, 3)+y;
-				dist = Math.sqrt(Math.pow(xp, 2)+ Math.pow(yp, 2));
-			passes+=1;
+				xCalc = Math.pow(x, 3) - (3*x*Math.pow(y, 2))+x;
+				yCalc = (3*Math.pow(x, 2)*y)- Math.pow(y, 3)+y;
+				passes++;
+				dist = Math.sqrt(Math.pow(xCalc, 2)+ Math.pow(yCalc, 2));
+	
 			
 			
 			}
 			int escapeTime = passes;
-			passes = 0;
-			return escapeTime;
+            return escapeTime;
 			
 			
 		}
