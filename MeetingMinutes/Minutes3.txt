@@ -1,0 +1,21 @@
+Meeting Minutes for 45 min:
+
+Meeting Attendance:
+  * Declan Sidoti
+  * Ryan Niedzialowski
+  * Saugat Khadka
+
+Tasks completed since last meeting:
+  * Tasking for remainder of phase 1
+  * Made new test cases
+
+Tasks started, but not completed, since last meeting:
+  * Created method set ups
+  * Started some test cases
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  * Finish methods and test cases
+
+Schedule for the next week's set of pair programming meetings:
+  * Meet at capen at 2:30
+ 
