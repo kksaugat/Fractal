@@ -52,11 +52,11 @@ public class EscapeTimeTests {
 		int x= 0;
 		int y= 0;
 		
-		while(y<512){
+		while(y<512){//While loop goes through burningShips int[][] and makes sure nothing equals 1||0
 			x = 0;
 			while(x < 512){
 				int escapeTime = arr[x][y];
-				assertEquals(255, escapeTime);
+				assertFalse((escapeTime == 1 ||escapeTime == 0)); //makes sure escapeTime ==1 || ==0 is false
 				x++;
 			}
 			y++;
@@ -75,15 +75,15 @@ public class EscapeTimeTests {
 		while(y<512){
 			x = 0;
 			while(x < 512){
-				int escapeTime = arr[x][y];
-				xCounter++;
+				int escapeTime = arr[x][y]; // makes sure nothing goes out of bounds
+				xCounter++; //counts each time x is increased
 				x++;
 			}
-			yCounter++;
+			yCounter++;//counts each time y is increased
 			y++;
 		}
-		assertEquals(262144, xCounter);
-		assertEquals(512, yCounter);
+		assertEquals(262144, xCounter); //xCounter == 262144
+		assertEquals(512, yCounter);	//yCounter == 512
 	}
 	
 	@Test
@@ -98,11 +98,11 @@ public class EscapeTimeTests {
 		while(y<512){
 			x = 0;
 			while(x < 512){
-				int escapeTime = arr[x][y];
-				xCounter++;
+				int escapeTime = arr[x][y]; //makes sure nothing goes out of bounds
+				xCounter++;//counts each time x is increased
 				x++;
 			}
-			yCounter++;
+			yCounter++;//counts each time y is increased
 			y++;
 		}
 		assertEquals(262144, xCounter);
@@ -121,11 +121,11 @@ public class EscapeTimeTests {
 		while(y<512){
 			x = 0;
 			while(x < 512){
-				int escapeTime = arr[x][y];
-				xCounter++;
+				int escapeTime = arr[x][y]; //makes sure nothing goes out of bounds
+				xCounter++; //counts each time x is increased
 				x++;
 			}
-			yCounter++;
+			yCounter++; //counts each time y is increased
 			y++;
 		}
 		assertEquals(262144, xCounter);
