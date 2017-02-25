@@ -144,7 +144,7 @@ public class main {
 	
 	public int[][] setArrMultiBrot(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
-			double xMin = -1.0;
+			double xMin = -1.0; //ranges
 			double xMax = 1.0;
 			double yMin = -1.3;
 			double yMax = 1.3;
@@ -174,7 +174,7 @@ public class main {
 	
 	public int[][] setArrBurningShip(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
-		double xMin = -1.8;
+		double xMin = -1.8; //Ranges
 		double xMax = -1.7;
 		double yMin = -.08;
 		double yMax = .025;
@@ -189,13 +189,13 @@ public class main {
 				x = 0;
 		
 					while(x < 512){
-						xPoint = xMin + (x * xSpacing); 
-						yPoint = yMin + (y * ySpacing);
+						xPoint = xMin + (x * xSpacing); //starts at min range and is increased by the position in the row int[X][]*xspacing
+						yPoint = yMin + (y * ySpacing); //same as xPoint but with the y coords
 						fractalFinal[x][y] = BurningShip(xPoint, yPoint); //determines escape time of xPoint/yPoint
 						x++;
 		
 					}
-					y++;
+					y++; 
 			}
 	
 	return fractalFinal;
@@ -205,8 +205,8 @@ public class main {
 	public int[][] setArrJulia(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
 			double xMin = -1.7;
-			double xMax = 1.7;
-			double yMin = -1.0;
+			double xMax = 1.7;		//Sets the ranges for x
+			double yMin = -1.0;		//sets the ranges for y
 			double yMax = 1.0;
 	
 			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
