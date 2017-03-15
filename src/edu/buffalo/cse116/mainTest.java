@@ -170,4 +170,119 @@ public class mainTest {
 			assertEquals(262144, xCounter);
 			assertEquals(512, yCounter);
 	}
+		
+		@Test
+		public void xTranslateMultiBrot(){
+			main m = new main();
+			int rowToTranslate = 0; //row we want to copy and move
+			int xCoord = 1; //row that we want to copy to 
+			int[][] array = m.setArrMultiBrot(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateRow(array, rowToTranslate, xCoord);  //calls translateRow();
+				
+				for(int y = 0; y < 512; y++){	//loops through all coordinates at xCoord
+					int rowOriginal = array[rowToTranslate][y];  //
+					int rowNew = arrayAfterTranslate[xCoord][y];
+					assertEquals(rowOriginal, rowNew);
+				}
+		}
+		@Test
+		public void yTranslateMultiBrot(){
+			main m = new main();
+			int columnToCopy = 0; //row we want to copy and move
+			int yCoord = 30; //row that we want to copy to 
+			int[][] array = m.setArrMultiBrot(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateColumn(array, columnToCopy, yCoord);  //calls translateColumn();
+				
+				for(int x = 0; x < 512; x++){ //loops through all 512 X values at yCoord
+					int columnOriginal = array[x][columnToCopy]; 
+					int columnNew = arrayAfterTranslate[x][yCoord]; 
+					assertEquals(columnOriginal, columnNew); //makes sure each column is equal at the same x value
+				}
+		}
+		@Test
+		public void xTranslateBurningShip(){
+			main m = new main();
+			int rowToTranslate = 1; //row we want to copy and move
+			int xCoord = 421; //row that we want to copy to 
+			int[][] array = m.setArrBurningShip(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateRow(array, rowToTranslate, xCoord);  //calls translateRow();
+				
+				for(int y = 0; y < 512; y++){	//loops through all 512 Y values at xCoord
+					int rowOriginal = array[rowToTranslate][y];  //
+					int rowNew = arrayAfterTranslate[xCoord][y];
+					assertEquals(rowOriginal, rowNew);
+				}
+		}
+		@Test
+		public void yTranslateBurningShip(){
+			main m = new main();
+			int columnToCopy = 0; //row we want to copy and move
+			int yCoord = 91; //row that we want to copy to 
+			int[][] array = m.setArrBurningShip(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateColumn(array, columnToCopy, yCoord);  //calls translateColumn();
+				
+				for(int x = 0; x < 512; x++){ //loops through all 512 X values at yCoord
+					int columnOriginal = array[x][columnToCopy]; 
+					int columnNew = arrayAfterTranslate[x][yCoord]; 
+					assertEquals(columnOriginal, columnNew); //makes sure each column is equal at the same x value
+				}
+		}
+		@Test
+		public void xTranslateJulia(){
+			main m = new main();
+			int rowToTranslate = 3; //row we want to copy and move
+			int xCoord = 92; //row that we want to copy to 
+			int[][] array = m.setArrJulia(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateRow(array, rowToTranslate, xCoord);  //calls translateRow();
+				
+				for(int y = 0; y < 512; y++){	//loops through all 512 Y values at xCoord
+					int rowOriginal = array[rowToTranslate][y];  //
+					int rowNew = arrayAfterTranslate[xCoord][y];
+					assertEquals(rowOriginal, rowNew);
+				}
+		}
+		@Test
+		public void yTranslateJulia(){
+			main m = new main();
+			int columnToCopy = 0; //row we want to copy and move
+			int yCoord = 30; //row that we want to copy to 
+			int[][] array = m.setArrJulia(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateColumn(array, columnToCopy, yCoord);  //calls translateColumn();
+				
+				for(int x = 0; x < 512; x++){ //loops through all 512 X values at yCoord
+					int columnOriginal = array[x][columnToCopy]; 
+					int columnNew = arrayAfterTranslate[x][yCoord]; 
+					assertEquals(columnOriginal, columnNew); //makes sure each column is equal at the same x value
+				}
+		}
+		@Test
+		public void xTranslateMadelBrot(){
+			main m = new main();
+			int rowToTranslate = 511; //row we want to copy and move
+			int xCoord = 3; //row that we want to copy to 
+			int[][] array = m.setArrBurningShip(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateRow(array, rowToTranslate, xCoord);  //calls translateRow();
+				
+				for(int y = 0; y < 512; y++){	//loops through all 512 Y values at xCoord
+					int rowOriginal = array[rowToTranslate][y];  //
+					int rowNew = arrayAfterTranslate[xCoord][y];
+					assertEquals(rowOriginal, rowNew);
+				}
+		}
+		@Test
+		public void yTranslateMadelBrot(){
+			main m = new main();
+			int columnToCopy = 44; //row we want to copy and move
+			int yCoord = 122; //row that we want to copy to 
+			int[][] array = m.setArrBurningShip(); //populates a 2d Array
+			int[][] arrayAfterTranslate = m.translateColumn(array, columnToCopy, yCoord);  //calls translateColumn();
+				
+				for(int x = 0; x < 512; x++){ //loops through all 512 X values at yCoord
+					int columnOriginal = array[x][columnToCopy]; 
+					int columnNew = arrayAfterTranslate[x][yCoord]; 
+					assertEquals(columnOriginal, columnNew); //makes sure each column is equal at the same x value
+				}
+		}
+		
+
 }

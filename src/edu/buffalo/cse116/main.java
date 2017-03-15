@@ -253,7 +253,7 @@ public class main {
 						while(x < 512){
 							xPoint = xMin + (x * xSpacing); 
 							yPoint = yMin + (y * ySpacing);
-							fractalFinal[x][y] = BurningShip(xPoint, yPoint); //determines escape time of xPoint/yPoint
+							fractalFinal[x][y] = Mandelbrot(xPoint, yPoint); //determines escape time of xPoint/yPoint
 							x++;
 						}
 						
@@ -264,6 +264,31 @@ public class main {
 	return fractalFinal;
 	
 }
+	
+	public int[][] translateRow(int[][] someArray, int rowToCopy, int newXcoord){ 
+		
+		int[][] retVal = someArray;
+		
+			for(int cursor = 0; cursor < 512; cursor++){
+				retVal[newXcoord][cursor] = someArray[rowToCopy][cursor];
+			}
+		
+		return retVal;
+		
+	}
+	
+	public int[][] translateColumn(int[][] someArray, int columnToCopy, int newYcoord){
+		
+		int[][] retVal = someArray;
+		
+			for(int cursor = 0; cursor < 512; cursor++){
+				retVal[cursor][newYcoord] = someArray[cursor][columnToCopy];
+			}
+		
+		return retVal;
+		
+	}	
+	
 	
 
 }
