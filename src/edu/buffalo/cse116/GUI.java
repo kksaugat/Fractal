@@ -33,16 +33,19 @@ private static JMenu File;
 private static JMenuItem BurningShip;	
 private static FractalPanel _fractalPanel;
 private static JMenuItem Exit;
-	private static int [][]_array;
+private static int [][]_array;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
 public GUI(){
 	_fractalPanel = new FractalPanel();
 	_main = new Main();
+	_array = _main.setArrMultiBrot();
 	JFrame frame = new JFrame("Fractal Images");
+	frame.add(_fractalPanel);
+	
 	frame.setVisible(true);
 	frame.setSize(400, 200);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	//frame.pack();
+	
 	MenuBar = new JMenuBar();
 
 
@@ -82,6 +85,7 @@ public GUI(){
 Exit = new JMenuItem("Exit");
 File.add(Exit);
 Exit.addActionListener(new ExitAction());
+frame.pack();
 
 }
 	
