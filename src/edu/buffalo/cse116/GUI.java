@@ -162,16 +162,16 @@ public void actionPerformed(ActionEvent e) {
 	JButton Rainbow = new JButton("Rainbow");
 	JButton Blues = new JButton("Blues");
 	JButton Grays = new JButton("Grays");
-	JButton CHANGETHIS = new JButton("CHANGE THIS");
+	JButton CottonCandy = new JButton("Cotton Candy");
 	Rainbow.addActionListener(new Action5());
 	Blues.addActionListener(new Action5());
 	Grays.addActionListener(new Action5());
-	CHANGETHIS.addActionListener(new Action5());
+	CottonCandy.addActionListener(new Action5());
 	
 	ColorPanel.add(Rainbow);
 	ColorPanel.add(Blues);
 	ColorPanel.add(Grays);
-	ColorPanel.add(CHANGETHIS);
+	ColorPanel.add(CottonCandy);
 	
 	ColorFrame.add(ColorPanel);
 	ColorFrame.setSize(200, 200);
@@ -201,8 +201,10 @@ static class Action5 implements ActionListener{
 			_fractalPanel.updateImage(_array);
 			
 		}
-		if(e.getActionCommand().equals("CHANGE THIS")){
-			System.out.println("CHANGE THISE BUTTON WHEN CUSTOM COLOR MODEL HAS BEEN CODED");
+		if(e.getActionCommand().equals("Cotton Candy")){
+			_model = ColorModelFactory.createGraColorModel(42);
+			_fractalPanel.setIndexColorModel(_model);
+			_fractalPanel.updateImage(_array);
 		}
 		
 	}

@@ -86,6 +86,19 @@ public class ColorModelFactory {
     IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
     return retVal;
   }
+  
+  public static IndexColorModel createGraColorModel(int numColors) {
+	    byte[] reds = new byte[numColors];
+	    byte[] greens = new byte[numColors];
+	    byte[] blues = new byte[numColors];
+	    for (int i = 0; i < reds.length - 1; i++) {
+	      reds[i] = (byte) ((Math.log10(i) / Math.log10(reds.length)) * 256);
+	      greens[i] = 17;
+	      blues[i] = (byte) (3 * 71 * 3);
+	    }
+	    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
+	    return retVal;
+	  }
 
 
 }
