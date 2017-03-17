@@ -12,11 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public  class GUI implements ActionListener {
+public  class GUI  {
 	
 private static Main _main;
 	private JFrame _frame;
 	private static FractalPanel _fractalPanel;
+	private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(22); //default model color when a previous hasn't been selected before drawing the first array
 	private JPanel _optionsMenu;
 	private JButton file;
 	private JButton ColorScheme;
@@ -27,6 +28,7 @@ private static Main _main;
 	
 	public GUI(){
 		_main = new Main();
+		_array = _main.setArrMultiBrot(); //default array incase color model is selected before fractal type
 		_fractalPanel = new FractalPanel(); //where fractal is displayed
 		_frame = new JFrame("Fractals Images");
 		_optionsMenu = new JPanel();
@@ -60,6 +62,11 @@ private static Main _main;
 	
 	}
 	
+	public void setModel(IndexColorModel model){
+		_model = model;
+	}
+	
+	
 	
 static class Action implements ActionListener{
 
@@ -88,6 +95,7 @@ static class Action implements ActionListener{
 		
 		
 		frame2.add(panel);
+		frame2.pack();
 		
 	
 	
@@ -115,8 +123,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getActionCommand().equals("MultiBrot")){ //checks JButton text .equals("multiBrot")
 		
 		_array = _main.setArrMultiBrot(); //sets array to correct array type
-		IndexColorModel model = ColorModelFactory.createRainbowColorModel(89); //color model chosen
-		_fractalPanel.setIndexColorModel(model); //sets the array to that color model
+		_fractalPanel.setIndexColorModel(_model); //sets the array to instance color model _model
 		_fractalPanel.updateImage(_array); //updates the array in the window
 		System.out.println("MultiBrot Selected"); //prints in console what array you selected
 	}
@@ -124,8 +131,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getActionCommand().equals("MandelBrot")){
 		
 		_array = _main.setArrMandelBrot();
-		IndexColorModel model = ColorModelFactory.createBluesColorModel(7);
-		_fractalPanel.setIndexColorModel(model);
+		_fractalPanel.setIndexColorModel(_model);
 		_fractalPanel.updateImage(_array);
 		System.out.println("MandelBrot Selected");
 	}
@@ -133,8 +139,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getActionCommand().equals("BurningShip")){
 		
 		_array = _main.setArrBurningShip();
-		IndexColorModel model = ColorModelFactory.createGrayColorModel(18);
-		_fractalPanel.setIndexColorModel(model);
+		_fractalPanel.setIndexColorModel(_model);
 		_fractalPanel.updateImage(_array);
 		System.out.println("BurningShip Selected");
 	}
@@ -142,8 +147,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getActionCommand().equals("Julia")){
 		
 		_array = _main.setArrJulia();
-		IndexColorModel model = ColorModelFactory.createRainbowColorModel(60);
-		_fractalPanel.setIndexColorModel(model);
+		_fractalPanel.setIndexColorModel(_model);
 		_fractalPanel.updateImage(_array);
 		System.out.println("Julia Selected");
 	}
@@ -160,38 +164,55 @@ public void actionPerformed(ActionEvent e) {
 	JFrame ColorFrame = new JFrame("Colors");
 	ColorFrame.setSize(200, 200);
 	JPanel ColorPanel = new JPanel();
+	
 	JButton Rainbow = new JButton("Rainbow");
 	JButton Blues = new JButton("Blues");
 	JButton Grays = new JButton("Grays");
+	JButton changeThisToNewColorModel = new JButton("CHANGE THIS");
+	Rainbow.addActionListener(new Action5());
+	Blues.addActionListener(new Action5());
+	Grays.addActionListener(new Action5());
+	changeThisToNewColorModel.addActionListener(new Action5());
+	
+	
 	ColorPanel.add(Rainbow);
 	ColorPanel.add(Blues);
 	ColorPanel.add(Grays);
+	ColorPanel.add(changeThisToNewColorModel);
 	ColorFrame.add(ColorPanel);
 	ColorFrame.setVisible(true); 
+	ColorFrame.pack();
+}
 }
 
 static class Action5 implements ActionListener{
-public void actionPerformed1(ActionEvent e) {
-	if(e.getActionCommand().equals("Rainbow"));
+@Override
+public void actionPerformed(ActionEvent e) {
 	
-		_fractalPanel.updateImage(_array);
+	if(e.getActionCommand().equals("Rainbow")){
 		
-			for(int y = 0; y < 512; y++){
-				for(int x = 0; x < 512; x++){
-					System.out.println("[" + x + "]" + "[" + y + "]");
-				IndexColorModel model = ColorModelFactory.createRainbowColorModel(_array[x][y]);
-					_fractalPanel.setIndexColorModel(model);
-				_fractalPanel.getColorModel(); 
-				
-				}}}					
+		_model = ColorModelFactory.createRainbowColorModel(13);
+		_fractalPanel.setIndexColorModel(_model);
+		_fractalPanel.updateImage(_array);
+	}
+	if(e.getActionCommand().equals("Blues")){
+		_model = ColorModelFactory.createBluesColorModel(26);
+		_fractalPanel.setIndexColorModel(_model);
+		_fractalPanel.updateImage(_array);
+	}
+	if(e.getActionCommand().equals("Grays")){
+		_model = ColorModelFactory.createGrayColorModel(80);
+		_fractalPanel.setIndexColorModel(_model);
+		_fractalPanel.updateImage(_array);
+	}
+	if(e.getActionCommand().equals("CHANGE THIS")){
+		//_model = ColorModelFactory.
+		//_fractalPanel.updateImage(_array);
+		System.out.println("CHANGE WHEN NEW COLOR MODEL HAS BEEN CODED");
+	}
+}
+}
+}
 
-@Override
-public void actionPerformed(ActionEvent e) {
-	// TODO Auto-generated method stub
-	
-}}}
-@Override
-public void actionPerformed(ActionEvent e) {
-	// TODO Auto-generated method stub
-	
-}}
+		
+
