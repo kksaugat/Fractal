@@ -29,13 +29,15 @@ public class ColorModelFactory {
     byte[] reds = new byte[numColors];
     byte[] greens = new byte[numColors];
     byte[] blues = new byte[numColors];
+   byte [] yellows = new byte[numColors];
     for (int i = 0; i < reds.length - 1; i++) {
       int rgb = Color.HSBtoRGB(i / ((float) reds.length - 1), 0.6F, 1);
       reds[i] = (byte) ((rgb & 0xFF0000) >> 16);
       greens[i] = (byte) ((rgb & 0xFF00) >> 8);
       blues[i] = (byte) (rgb & 0xFF);
+    yellows[i] = (byte) (rgb & 0xFF);
     }
-    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
+    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues,yellows);
     return retVal;
   }
 
@@ -84,6 +86,19 @@ public class ColorModelFactory {
     IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
     return retVal;
   }
-  
 
+
+  public static IndexColorModel createColorModel(int numColors) {
+	    byte[] reds = new byte[numColors];
+	    byte[] greens = new byte[numColors];
+	    byte[] blues = new byte[numColors];
+	    for (int i = 0; i < reds.length - 1; i++) {
+	      blues[i] = (byte) ((Math.log10(i) / Math.log10(blues.length)) * 256);
+	      greens[i] = blues[i];
+	      reds[i] = 0;
+	    }
+	    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
+	    return retVal;
+	  }
 }
+
