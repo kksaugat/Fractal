@@ -83,7 +83,7 @@ public class MainTest {
 		@Test
 		public void MandelBrotSize(){
 			Main mn = new Main();
-			int[][] arr = mn.setArrMadelBrot();
+			int[][] arr = mn.setArrMandelBrot();
 			int x= 0;
 			int y= 0;
 			int xCounter = 0; //should be equal to 512*512 since it goes through 512 rows with 512 columns each

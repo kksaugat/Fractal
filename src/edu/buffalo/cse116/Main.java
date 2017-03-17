@@ -17,15 +17,9 @@ package edu.buffalo.cse116;
    // CALC ESACAPE-TIME FOR EACH FRACTAL
 public class Main  {
 	
+	double xPoint;
+	double yPoint;
 
-
-	private double xPoint;
-	private double yPoint;
-	
-	
-	
-
-	
 	
 	public int Mandelbrot(double x, double y){//Taking our coordinates as input
 		
@@ -35,8 +29,8 @@ public class Main  {
 			int passes = 0; // # of passes
 		
 			while (dist <=2 && passes <255){ //Arbitrary values used for loop
-				xCalc = Math.pow(x, 2) - Math.pow(y, 2) + x; 
-				yCalc = 2 * x * y + y;
+				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + x; 
+				yCalc = 2 * xCalc * yCalc + y;
 				passes++;
 				dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); //Distance using pythag
 		
@@ -59,11 +53,10 @@ public class Main  {
 			int passes = 0; // # of passes
 		
 			while (dist <=2 && passes <255){ //Arbitrary values used for loop
-				xCalc = Math.pow(x, 2) - Math.pow(y, 2) - 0.72689; 
-				yCalc = 2 * x * y + 0.188887;
+				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) - 0.72689; 
+				yCalc = 2 * xCalc * yCalc + 0.188887;
 				passes++;
 				dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); //Distance using pythag
-				
 				
 			}
 			int escapeTime = passes;
@@ -84,8 +77,8 @@ public class Main  {
 			int passes = 0; // # of passes
 		
 			while (dist <=2 && passes <255){ //Arbitrary values used for loop
-				xCalc = Math.pow(x, 2) - Math.pow(y, 2) + x; 
-				yCalc = Math.abs(2 * x * y) + y;
+				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + x; 
+				yCalc = Math.abs(2 * xCalc * yCalc) + y;
 				passes++;
 				dist = Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2)); //Distance using pythag
 				
@@ -109,8 +102,8 @@ public class Main  {
 			int passes = 0;
 			
 			while(dist<=2 && passes <255){
-				xCalc = Math.pow(x, 3) - (3*x*Math.pow(y, 2))+x;
-				yCalc = (3*Math.pow(x, 2)*y)- Math.pow(y, 3)+y;
+				xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + x;
+				yCalc = (3*Math.pow(xCalc, 2) * yCalc) - Math.pow(yCalc, 3) + y;
 				passes++;
 				dist = Math.sqrt(Math.pow(xCalc, 2)+ Math.pow(yCalc, 2));
 	
@@ -224,7 +217,7 @@ public class Main  {
 	
 }
 	
-	public int[][] setArrMadelBrot(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
+	public int[][] setArrMandelBrot(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
 			double xMin = -2.15;
 			double xMax = .6;
