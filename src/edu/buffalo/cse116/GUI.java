@@ -1,8 +1,6 @@
 
 package edu.buffalo.cse116;
 import edu.buffalo.cse116.ColorModelFactory;
-import edu.buffalo.fractal.FractalPanel;
-
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -90,6 +88,7 @@ frame.pack();
 }
 	
  class ExitAction implements ActionListener{
+		@Override
 		public void actionPerformed (ActionEvent e){
 		System.exit(0);
 	}}
@@ -97,6 +96,7 @@ frame.pack();
 
 	
 	 class FractalsAction implements ActionListener{
+@Override
 public void actionPerformed (ActionEvent e){
 			if(e.getActionCommand().equals("MultiBrot")){ 
 				
@@ -131,6 +131,7 @@ public void actionPerformed (ActionEvent e){
 		}}
 		}
 	 class ColorAction implements ActionListener{
+	@Override
 	public void actionPerformed(ActionEvent e){
 
 		
