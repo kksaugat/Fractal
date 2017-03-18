@@ -152,7 +152,7 @@ public void actionPerformed (ActionEvent e){
 				_fractalPanel.updateImage(_array);
 				
 			}
-			if(e.getActionCommand().equals("Cotton Candy")){
+			if(e.getActionCommand().equals("CottonCandy")){
 				_model = ColorModelFactory.createGraColorModel(42);
 				_fractalPanel.setIndexColorModel(_model);
 				_fractalPanel.updateImage(_array);
