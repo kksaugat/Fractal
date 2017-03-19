@@ -1,17 +1,22 @@
 
 package edu.buffalo.cse116;
 import edu.buffalo.cse116.ColorModelFactory;
+import edu.buffalo.fractal.FractalPanel;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.IndexColorModel;
 
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 
 
 public  class GUI {
@@ -28,9 +33,13 @@ private static JMenuItem Grays;
 private static  JMenuItem MultiBrot;
 private static  JMenuItem Julia;
 private static JMenu File;
+private static JFormattedTextField textField;
+private static JMenuItem EscDistance;
 private static JMenuItem BurningShip;	
+private static JPopupMenu popup;
 private static FractalPanel _fractalPanel;
 private static JMenuItem Exit;
+private static JButton button;
 private static int [][]_array;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
 public GUI(){
@@ -45,16 +54,22 @@ public GUI(){
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	MenuBar = new JMenuBar();
-
-
 	 frame.setJMenuBar(MenuBar);
 	  Fractals = new JMenu("Fractals");
 	  ColorSchemes = new JMenu("ColorSchemes");
-	
+	  EscDistance = new JMenu("EscDistance");
+	 
+	  textField = new JFormattedTextField();
 	  File = new JMenu("File");
-	MenuBar.add(Fractals);
+	  button = new JButton("change");
+	  
+	 MenuBar.add(Fractals);
 	MenuBar.add(File);
 	MenuBar.add(ColorSchemes);
+	MenuBar.add(EscDistance);
+	textField = new JFormattedTextField();
+	EscDistance.add(textField);
+	EscDistance.add(button);
 
 	 MandelBrot = new JMenuItem("MandelBrot");
 	 Julia = new JMenuItem("Julia");
@@ -80,6 +95,7 @@ public GUI(){
     Blues.addActionListener(new ColorAction());
     CottonCandy.addActionListener(new ColorAction());
     Grays.addActionListener(new ColorAction());
+    button.addActionListener(new ButtonAction());
 Exit = new JMenuItem("Exit");
 File.add(Exit);
 Exit.addActionListener(new ExitAction());
@@ -94,7 +110,14 @@ frame.pack();
 	}}
 
 
-	
+class ButtonAction implements ActionListener{
+	@Override
+	public void actionPerformed(ActionEvent e){
+		if(e.getActionCommand().equals(button)){
+			System.out.println("button");
+		}
+	}
+}
 	 class FractalsAction implements ActionListener{
 @Override
 public void actionPerformed (ActionEvent e){

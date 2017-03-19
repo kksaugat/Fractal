@@ -19,8 +19,11 @@ public class Main  {
 	
 	double xPoint;
 	double yPoint;
+	private static double distance;
 
-	
+	public void setEscDist(double dist){
+		distance = dist;
+	}
 	public int Mandelbrot(double x, double y){//Taking our coordinates as input
 		
 			double xCalc = x;   // X' 
