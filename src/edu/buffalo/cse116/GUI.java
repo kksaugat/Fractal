@@ -114,7 +114,8 @@ class ButtonAction implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e){
 		if(e.getActionCommand().equals(button)){
-			System.out.println("button");
+			double dis = Double.parseDouble(textField.getText());
+			_main.setEscDist(dis);
 		}
 	}
 }
