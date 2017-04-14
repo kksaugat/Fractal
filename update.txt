@@ -1,1 +1,2 @@
-TA: you can hopefully update the escape distance from the jmenu
+update the escape distance from the jmenu
+shows an error message and rejects the invalid escape distance
