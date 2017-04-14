@@ -46,6 +46,9 @@ private static JMenuItem Exit;
 private static JButton button;
 private static int [][]_array;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
+private String currentFractal = "MultiBrot"; //default value - changes as a new moel is selected
+
+
 public GUI(){
 	
 	_fractalPanel = new FractalPanel();
@@ -125,6 +128,23 @@ class ButtonAction implements ActionListener{
 		if(e.getActionCommand().equals("Enter")){
 			double dis = Double.parseDouble(textField.getText());
 			_main.setEscDist(dis);
+			if(currentFractal.equals("MandelBrot")){
+				_array = _main.setArrMandelBrot();
+				_fractalPanel.updateImage(_array);
+			}
+			if(currentFractal.equals("MultiBrot")){
+				_array = _main.setArrMultiBrot();
+				_fractalPanel.updateImage(_array);
+			}
+			if(currentFractal.equals("BurningShip")){
+				_array = _main.setArrBurningShip();
+				_fractalPanel.updateImage(_array);
+			}
+			if(currentFractal.equals("Julia")){
+				_array = _main.setArrJulia();
+				_fractalPanel.updateImage(_array);
+			}
+			
 			
 		}
 	}
@@ -137,6 +157,7 @@ class FractalsAction implements ActionListener{
 			_array = _main.setArrMultiBrot(); 
 			_fractalPanel.setIndexColorModel(_model); 
 			_fractalPanel.updateImage(_array); 
+			currentFractal = "MultiBrot";
 			System.out.println("MultiBrot Selected"); 
 		}
 			
@@ -145,6 +166,7 @@ class FractalsAction implements ActionListener{
 			_array = _main.setArrMandelBrot();
 			_fractalPanel.setIndexColorModel(_model);
 			_fractalPanel.updateImage(_array);
+			currentFractal = "MandelBrot";
 			System.out.println("MandelBrot Selected");
 		}
 			
@@ -153,6 +175,7 @@ class FractalsAction implements ActionListener{
 			_array = _main.setArrBurningShip();
 			_fractalPanel.setIndexColorModel(_model);
 			_fractalPanel.updateImage(_array);
+			currentFractal = "BurningShip";
 			System.out.println("BurningShip Selected");
 		}
 			
@@ -161,6 +184,7 @@ class FractalsAction implements ActionListener{
 				_array = _main.setArrJulia();
 				_fractalPanel.setIndexColorModel(_model);
 				_fractalPanel.updateImage(_array);
+				currentFractal = "Julia";
 				System.out.println("Julia Selected");	
 		}}
 		}

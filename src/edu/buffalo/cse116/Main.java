@@ -19,7 +19,7 @@ public class Main  {
 	
 	double xPoint;
 	double yPoint;
-	private static double distance;
+	private static double distance = 2; //defaults to 2
 
 	public void setEscDist(double dist){
 		distance = dist;
@@ -31,7 +31,7 @@ public class Main  {
 			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
-			while (dist <=2 && passes <255){ //Arbitrary values used for loop
+			while (dist <= distance && passes <255){ //Arbitrary values used for loop
 				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + x; 
 				yCalc = 2 * xCalc * yCalc + y;
 				passes++;
@@ -55,7 +55,7 @@ public class Main  {
 			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
-			while (dist <=2 && passes <255){ //Arbitrary values used for loop
+			while (dist <= distance && passes <255){ //Arbitrary values used for loop
 				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) - 0.72689; 
 				yCalc = 2 * xCalc * yCalc + 0.188887;
 				passes++;
@@ -79,7 +79,7 @@ public class Main  {
 			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
-			while (dist <=2 && passes <255){ //Arbitrary values used for loop
+			while (dist <= distance && passes <255){ //Arbitrary values used for loop
 				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + x; 
 				yCalc = Math.abs(2 * xCalc * yCalc) + y;
 				passes++;
@@ -104,7 +104,7 @@ public class Main  {
 			double dist =Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;
 			int passes = 0;
 			
-			while(dist<=2 && passes <255){
+			while(dist<= distance && passes <255){
 				xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + x;
 				yCalc = (3*Math.pow(xCalc, 2) * yCalc) - Math.pow(yCalc, 3) + y;
 				passes++;
