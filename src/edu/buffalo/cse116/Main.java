@@ -22,7 +22,7 @@ public class Main  {
 	private static double distance = 2; //defaults to 2
 
 	public void setEscDist(double dist){
-		distance = dist;
+		if(dist > 0){distance = dist;}
 	}
 	public int Mandelbrot(double x, double y){//Taking our coordinates as input
 		
