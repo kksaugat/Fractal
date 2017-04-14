@@ -4,9 +4,12 @@ import edu.buffalo.cse116.ColorModelFactory;
 import edu.buffalo.fractal.FractalPanel;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.IndexColorModel;
 
 import javax.swing.JButton;
@@ -16,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 
@@ -50,8 +54,9 @@ public GUI(){
 	JFrame frame = new JFrame("Fractal Images");
 	frame.add(_fractalPanel);
 	
-	frame.setVisible(true);
-	frame.setSize(400, 200);
+	
+	_fractalPanel.addMouseListener(new mListener());
+
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	MenuBar = new JMenuBar();
@@ -100,6 +105,8 @@ public GUI(){
     Exit = new JMenuItem("Exit");
     File.add(Exit);
     Exit.addActionListener(new ExitAction());
+    
+    frame.setVisible(true);
     frame.pack();
 
 }
@@ -187,11 +194,53 @@ class FractalsAction implements ActionListener{
 		}
 
 		}
-
-	
-		
 	
 	}
+	 
+	 class mListener implements MouseListener{
+		 private int startingX;
+			private int endingX;
+			private int startingY;
+			private int endingY;
+
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+
+			}
+
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			public void mousePressed(MouseEvent e) {
+				
+				startingX = e.getX();
+				startingY = e.getY();
+				
+				System.out.println("Starting x coord = [" + startingX +"] Starting y coord = [" + startingY +"]");
+
+			}
+
+			public void mouseReleased(MouseEvent e) {
+				
+				
+				endingX = e.getX();
+				endingY = e.getY();
+				
+				int x = endingX - startingX;
+				int y = endingY - startingY;
+				
+				System.out.println("Final x coord = [" + endingX +"] Final y coord = [" + endingY +"]" + x);
+
+			}
+	 }
 		
 	}
 

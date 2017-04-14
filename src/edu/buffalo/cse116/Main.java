@@ -275,6 +275,11 @@ public class Main  {
 		
 	}	
 	
+	public void changeBurningShip(int startingX, int endingX, int startingY, int endingY){
+		
+	}
+	
+	
 	
 
 }
