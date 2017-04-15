@@ -49,14 +49,14 @@ private static JButton button2;
 private static int [][]_array;
 private static JFormattedTextField escTimeText;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
-private String currentFractal = "MultiBrot"; //default value - changes as a new moel is selected
+private String currentFractal;  //default value - changes as a new moel is selected
 
 
 public GUI(){
 	
 	_fractalPanel = new FractalPanel();
 	_main = new Main();
-	_array = _main.setArrMultiBrot();
+	
 	JFrame frame = new JFrame("Fractal Images");
 	frame.add(_fractalPanel);
 	
@@ -175,7 +175,7 @@ class FractalsAction implements ActionListener{
 	@Override
 	public void actionPerformed (ActionEvent e){
 		if(e.getActionCommand().equals("MultiBrot")){ 
-				
+			_main.setMultiBrotDefault();
 			_array = _main.setArrMultiBrot(); 
 			_fractalPanel.setIndexColorModel(_model); 
 			_fractalPanel.updateImage(_array); 
@@ -184,7 +184,8 @@ class FractalsAction implements ActionListener{
 		}
 			
 		if(e.getActionCommand().equals("MandelBrot")){
-				
+			
+			_main.setMandelBrotDefualt();
 			_array = _main.setArrMandelBrot();
 			_fractalPanel.setIndexColorModel(_model);
 			_fractalPanel.updateImage(_array);
@@ -193,7 +194,8 @@ class FractalsAction implements ActionListener{
 		}
 			
 		if(e.getActionCommand().equals("BurningShip")){
-				
+			
+			_main.setBurningShipDefault();
 			_array = _main.setArrBurningShip();
 			_fractalPanel.setIndexColorModel(_model);
 			_fractalPanel.updateImage(_array);
@@ -203,6 +205,7 @@ class FractalsAction implements ActionListener{
 			
 		if(e.getActionCommand().equals("Julia")){
 				
+				_main.setJuliaDefault();
 				_array = _main.setArrJulia();
 				_fractalPanel.setIndexColorModel(_model);
 				_fractalPanel.updateImage(_array);
@@ -280,10 +283,12 @@ class FractalsAction implements ActionListener{
 				endingX = e.getX();
 				endingY = e.getY();
 				
-				int x = endingX - startingX;
-				int y = endingY - startingY;
+				endingX = e.getX();
+				endingY = e.getY();
 				
-				System.out.println("Final x coord = [" + endingX +"] Final y coord = [" + endingY +"]" + x);
+				_array = _main.setNewCoordinates(startingX, startingY, endingX, endingY, currentFractal);
+				_fractalPanel.updateImage(_array);
+				
 
 			}
 	 }

@@ -20,6 +20,14 @@ public class Main  {
 	double xPoint;
 	double yPoint;
 	private static double distance = 2; //defaults to 2
+	double xMin;
+	double xMax;
+	double yMin;
+	double yMax;
+	double xCordStart;
+	double xCordEnd;
+	double yCordStart;
+	double yCordEnd;
 
 	public void setEscDist(double dist){
 		if(dist > 0){distance = dist;}
@@ -130,10 +138,10 @@ public class Main  {
 	
 	public int[][] setArrMultiBrot(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
-			double xMin = -1.0; //ranges
-			double xMax = 1.0;
-			double yMin = -1.3;
-			double yMax = 1.3;
+//			double xMin = -1.0; //ranges
+//			double xMax = 1.0;
+//			double yMin = -1.3;
+//			double yMax = 1.3;
 		
 			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
 			double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
@@ -160,10 +168,10 @@ public class Main  {
 	
 	public int[][] setArrBurningShip(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
-		double xMin = -1.8; //Ranges
-		double xMax = -1.7;
-		double yMin = -.08;
-		double yMax = .025;
+//		double xMin = -1.8; //Ranges
+//		double xMax = -1.7;
+//		double yMin = -.08;
+//		double yMax = .025;
 	
 		double xSpacing = (xMax-xMin)/512; //sets spacing between x values
 		double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
@@ -190,10 +198,10 @@ public class Main  {
 	
 	public int[][] setArrJulia(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
-			double xMin = -1.7;
-			double xMax = 1.7;		//Sets the ranges for x
-			double yMin = -1.0;		//sets the ranges for y
-			double yMax = 1.0;
+//			double xMin = -1.7;
+//			double xMax = 1.7;		//Sets the ranges for x
+//			double yMin = -1.0;		//sets the ranges for y
+//			double yMax = 1.0;
 	
 			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
 			double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
@@ -222,10 +230,10 @@ public class Main  {
 	
 	public int[][] setArrMandelBrot(){ //x and y values = array[x][y] and sets xPoint and yPoint in array 
 		
-			double xMin = -2.15;
-			double xMax = .6;
-			double yMin = -1.3;
-			double yMax = 1.3;
+//			double xMin = -2.15;
+//			double xMax = .6;
+//			double yMin = -1.3;
+//			double yMax = 1.3;
 	
 			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
 			double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
@@ -275,8 +283,117 @@ public class Main  {
 		
 	}	
 	
-	public void changeBurningShip(int startingX, int endingX, int startingY, int endingY){
+	
+	
+	
+	public int[][] setNewCoordinates(int minX, int minY, int maxX, int maxY, String arrayName){
 		
+		if(arrayName.equalsIgnoreCase("MandelBrot")){
+				
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				
+				xMin = xCordStart;
+				xMax = xCordEnd;
+				yMin = yCordStart;
+				yMax = yCordEnd;
+				
+				
+				System.out.println(xMin + " " + xMax +  " " +  yMin + " " + yMax);
+				
+				return setArrMandelBrot();
+			}
+			
+		
+		
+		if(arrayName.equalsIgnoreCase("Julia")){
+
+			xCordStart = xMin + (minX * ((xMax-xMin)/512));
+			xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+			yCordStart = yMin + (minY * ((yMax - yMin)/512));
+			yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+		
+			xMin = xCordStart;
+			xMax = xCordEnd;
+			yMin = yCordStart;
+			yMax = yCordEnd;
+		
+			
+		System.out.println(xMin + " " + xMax +  " " +  yMin + " " + yMax);
+		
+		return setArrJulia();
+		}
+//		
+		if(arrayName.equalsIgnoreCase("BurningShip")){
+
+			xCordStart = xMin + (minX * ((xMax-xMin)/512));
+			xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+			yCordStart = yMin + (minY * ((yMax - yMin)/512));
+			yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+		
+			xMin = xCordStart;
+			xMax = xCordEnd;
+			yMin = yCordStart;
+			yMax = yCordEnd;
+		
+		return setArrBurningShip();
+	
+		}
+//		
+		if(arrayName.equalsIgnoreCase("MultiBrot")){
+
+		xCordStart = xMin + (minX * ((xMax-xMin)/512));
+		xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+		yCordStart = yMin + (minY * ((yMax - yMin)/512));
+		yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+		
+		xMin = xCordStart;
+		xMax = xCordEnd;
+		yMin = yCordStart;
+		yMax = yCordEnd;
+		
+		return setArrMandelBrot();
+	}
+		return null;
+		
+	}
+	
+	
+	
+	
+	/*
+	 * Methods to setDfault coordinate ranges (unZoom)
+	 * 
+	 */
+	
+	public void setMandelBrotDefualt(){
+		xMin = -2.15;
+		xMax = .6;
+		yMin = -1.3;
+		yMax = 1.3;
+	}
+	
+	public void setJuliaDefault(){
+		xMin = -1.7;
+		xMax = 1.7;		
+		yMin = -1.0;		
+		yMax = 1.0;
+	}
+	
+	public void setMultiBrotDefault(){
+		xMin = -1.0; 
+		xMax = 1.0;
+		yMin = -1.3;
+		yMax = 1.3;
+	}
+	
+	public void setBurningShipDefault(){
+		xMin = -1.8;
+		xMax = -1.7;
+		yMin = -.08;
+		yMax = .025;
 	}
 	
 	
