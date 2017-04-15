@@ -399,4 +399,63 @@ public class Main  {
 	
 	
 
+	
+// takes x-coordinate and y-coordinate as an argument
+// returns an int of the escape time calculated from the new maximum escape time	
+	 
+	public int newescapeDistanceMandelBrot(double x, double y){
+		Main mn = new Main();
+		  
+		double dist=0;  
+		int iteration = 0; 
+	
+		while (dist <= distance && iteration <135){ 
+			mn.Mandelbrot(x, y);
+		iteration++;	
+		}
+		int escapeTime =iteration;			
+		return escapeTime;
+	}
+	public int newescapeDistanceJuila(double x, double y){
+		Main mn = new Main();
+		double dist=0; 
+		int iteration = 0; 
+	
+		while (dist <= distance && iteration <135){ 
+			mn.Julia(x, y);
+		iteration++;
+		}
+		int escapeTime = iteration;			
+		return escapeTime;
+	}
+
+public int newescapeDistanceMultiBrot(double x, double y){
+	Main mn = new Main();
+ 	double dist=0;  
+	int iteration = 0; 
+
+	while(dist<= distance && iteration <135){
+		mn.Multibrot(x, y);
+iteration++;
+	}
+	int escapeTime = iteration;			
+	return escapeTime;
 }
+
+public int newescapeDistanceBurningShip(double x, double y){
+	Main mn = new Main();
+	double dist=0;  
+	int iteration = 0; 
+
+	while (dist <= distance && iteration <135){ 
+	 mn.BurningShip(x, y);
+	iteration++;		
+	}
+	int escapeTime = iteration;			
+	return escapeTime;
+}
+}
+
+
+		
+	
