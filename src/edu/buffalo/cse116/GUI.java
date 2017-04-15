@@ -41,10 +41,13 @@ private static JFormattedTextField textField;
 private static JMenuItem EscDistance;
 private static JMenuItem BurningShip;	
 private static JPopupMenu popup;
+private static JMenuItem EscTime;
 private static FractalPanel _fractalPanel;
 private static JMenuItem Exit;
 private static JButton button;
+private static JButton button2;
 private static int [][]_array;
+private static JFormattedTextField escTimeText;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
 private String currentFractal = "MultiBrot"; //default value - changes as a new moel is selected
 
@@ -67,18 +70,25 @@ public GUI(){
 	Fractals = new JMenu("Fractals");
 	ColorSchemes = new JMenu("ColorSchemes");
 	EscDistance = new JMenu("EscDistance");
+	EscTime = new JMenu("EscTime");
 	 
 	textField = new JFormattedTextField();
 	File = new JMenu("File");
 	button = new JButton("Enter");
-	  
+	button2 = new JButton("Select");
+			
 	MenuBar.add(Fractals);
 	MenuBar.add(File);
 	MenuBar.add(ColorSchemes);
 	MenuBar.add(EscDistance);
+	MenuBar.add(EscTime);
+	escTimeText = new JFormattedTextField();
 	textField = new JFormattedTextField();
 	EscDistance.add(textField);
 	EscDistance.add(button);
+	EscTime.add(escTimeText);
+	EscTime.add(button2);
+	
 
 	MandelBrot = new JMenuItem("MandelBrot");
 	Julia = new JMenuItem("Julia");
@@ -105,6 +115,7 @@ public GUI(){
     CottonCandy.addActionListener(new ColorAction());
     Grays.addActionListener(new ColorAction());
     button.addActionListener(new ButtonAction());
+    button2.addActionListener(new Button2Action());
     Exit = new JMenuItem("Exit");
     File.add(Exit);
     Exit.addActionListener(new ExitAction());
@@ -144,6 +155,17 @@ class ButtonAction implements ActionListener{
 				_array = _main.setArrJulia();
 				_fractalPanel.updateImage(_array);
 			}
+			
+			
+		}
+	}
+}
+class Button2Action implements ActionListener{
+	@Override
+	public void actionPerformed(ActionEvent e){
+		if(e.getActionCommand().equals("Select")){
+			//add code for max esc time
+			double maxTime = Double.parseDouble(escTimeText.getText());
 			
 			
 		}
