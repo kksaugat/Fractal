@@ -285,5 +285,32 @@ public class MainTest {
 				}
 		}
 		
+ 	//When maximum escape time is set to 135 and distance to 2
+	@Test
+	public void newMandelbrotTest (){
+	 Main mn = new Main();
+	int result = (mn.newescapeDistanceMandelBrot(0.3207031250000001, -0.07109374999999386));
+	assertEquals(135,result);// should return the maximum escape time which is 135
+	}
+
+	public void JuliaSet (){
+    Main mn = new Main();
+	int result = (mn.newescapeDistanceJuila(1.0492187499999897, -0.234375));
+	assertEquals(135,result);// should return the maximum escape time which is 135
+	}
+	
+	
+	public void BurningShipTest (){
+    Main mn = new Main();
+	int result = (mn.newescapeDistanceBurningShip(-1.7443359374999874, -0.017451171875000338));
+	assertEquals(135,result);// should return the maximum escape time which is 135
+	}
+	
+	
+	public void MultiBrotTest(){
+    Main mn = new Main();
+	int result = (mn.newescapeDistanceMultiBrot(0.5859375, 0.24375000000000108));
+	assertEquals(135,result);// should return the maximum escape time which is 135
+	}
 
 }
