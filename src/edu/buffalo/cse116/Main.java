@@ -290,10 +290,30 @@ public class Main  {
 		
 		if(arrayName.equalsIgnoreCase("MandelBrot")){
 				
+			if(minX > maxX && minY > maxY){ //
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY < maxY){ //1
 				xCordStart = xMin + (minX * ((xMax-xMin)/512));
 				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
 				yCordStart = yMin + (minY * ((yMax - yMin)/512));
 				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX > maxX && minY < maxY){ //
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY > maxY){ //2
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+			}	
 				
 				xMin = xCordStart;
 				xMax = xCordEnd;
@@ -309,11 +329,34 @@ public class Main  {
 		
 		
 		if(arrayName.equalsIgnoreCase("Julia")){
-
-			xCordStart = xMin + (minX * ((xMax-xMin)/512));
-			xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-			yCordStart = yMin + (minY * ((yMax - yMin)/512));
-			yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			
+			if(minX > maxX && minY > maxY){ 
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY < maxY){ 
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX > maxX && minY < maxY){ 
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY > maxY){ 
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				
+			}
+			
+			
 		
 			xMin = xCordStart;
 			xMax = xCordEnd;
@@ -328,10 +371,30 @@ public class Main  {
 //		
 		if(arrayName.equalsIgnoreCase("BurningShip")){
 
-			xCordStart = xMin + (minX * ((xMax-xMin)/512));
-			xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-			yCordStart = yMin + (minY * ((yMax - yMin)/512));
-			yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			if(minX > maxX && minY > maxY){ //
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY < maxY){ //1
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX > maxX && minY < maxY){ //
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY > maxY){ //2
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+			}
 		
 			xMin = xCordStart;
 			xMax = xCordEnd;
@@ -344,10 +407,30 @@ public class Main  {
 //		
 		if(arrayName.equalsIgnoreCase("MultiBrot")){
 
-		xCordStart = xMin + (minX * ((xMax-xMin)/512));
-		xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-		yCordStart = yMin + (minY * ((yMax - yMin)/512));
-		yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			if(minX > maxX && minY > maxY){ //
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY < maxY){ //1
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX > maxX && minY < maxY){ //
+				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
+				yCordStart = yMin + (minY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+			}
+			if(minX < maxX && minY > maxY){ //2
+				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/512));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+			}	
 		
 		xMin = xCordStart;
 		xMax = xCordEnd;

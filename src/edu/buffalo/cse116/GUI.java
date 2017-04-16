@@ -279,9 +279,7 @@ class FractalsAction implements ActionListener{
 
 			public void mouseReleased(MouseEvent e) {
 				
-				
-				endingX = e.getX();
-				endingY = e.getY();
+	
 				
 				endingX = e.getX();
 				endingY = e.getY();
@@ -289,7 +287,7 @@ class FractalsAction implements ActionListener{
 				_array = _main.setNewCoordinates(startingX, startingY, endingX, endingY, currentFractal);
 				_fractalPanel.updateImage(_array);
 				
-
+				System.out.println("Starting x coord = [" + endingX +"] Starting y coord = [" + endingY +"]");
 			}
 	 }
 		
