@@ -28,10 +28,17 @@ public class Main  {
 	double xCordEnd;
 	double yCordStart;
 	double yCordEnd;
+	private int time = 255;
 
 	public void setEscDist(double dist){
 		if(dist > 0){distance = dist;}
 	}
+	public void setEscTime(int x){
+		if(x > 0 ){
+			time = x;
+		}
+	}
+	
 	public int Mandelbrot(double x, double y){//Taking our coordinates as input
 		
 			double xCalc = x;   // X' 
@@ -39,7 +46,7 @@ public class Main  {
 			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
-			while (dist <= distance && passes <255){ //Arbitrary values used for loop
+			while (dist <= distance && passes < time){ //Arbitrary values used for loop
 				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + x; 
 				yCalc = 2 * xCalc * yCalc + y;
 				passes++;
@@ -63,7 +70,7 @@ public class Main  {
 			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
-			while (dist <= distance && passes <255){ //Arbitrary values used for loop
+			while (dist <= distance && passes < time){ //Arbitrary values used for loop
 				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) - 0.72689; 
 				yCalc = 2 * xCalc * yCalc + 0.188887;
 				passes++;
@@ -87,7 +94,7 @@ public class Main  {
 			double dist=Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;  // Distance
 			int passes = 0; // # of passes
 		
-			while (dist <= distance && passes <255){ //Arbitrary values used for loop
+			while (dist <= distance && passes < time){ //Arbitrary values used for loop
 				xCalc = Math.pow(xCalc, 2) - Math.pow(yCalc, 2) + x; 
 				yCalc = Math.abs(2 * xCalc * yCalc) + y;
 				passes++;
@@ -112,7 +119,7 @@ public class Main  {
 			double dist =Math.sqrt(Math.pow(xCalc, 2) + Math.pow(yCalc, 2));;
 			int passes = 0;
 			
-			while(dist<= distance && passes <255){
+			while(dist<= distance && passes < time){
 				xCalc = Math.pow(xCalc, 3) - (3 * xCalc * Math.pow(yCalc, 2)) + x;
 				yCalc = (3*Math.pow(xCalc, 2) * yCalc) - Math.pow(yCalc, 3) + y;
 				passes++;

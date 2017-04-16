@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.IndexColorModel;
 
 import javax.swing.JButton;
@@ -50,6 +51,9 @@ private static int [][]_array;
 private static JFormattedTextField escTimeText;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
 private String currentFractal;  //default value - changes as a new moel is selected
+private JLabel fromLabel;
+private JLabel toLabel;
+private JMenuItem Reset;
 
 
 public GUI(){
@@ -62,6 +66,7 @@ public GUI(){
 	
 	
 	_fractalPanel.addMouseListener(new mListener());
+	_fractalPanel.addMouseMotionListener(new mListener());
 
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
@@ -117,19 +122,59 @@ public GUI(){
     button.addActionListener(new ButtonAction());
     button2.addActionListener(new Button2Action());
     Exit = new JMenuItem("Exit");
+    Reset = new JMenuItem("Reset");
     File.add(Exit);
+    File.add(Reset);
+    Reset.addActionListener(new resetAction());
     Exit.addActionListener(new ExitAction());
+    
+    fromLabel  = new JLabel("    From: ");
+    toLabel = new JLabel("    To: ");
+    MenuBar.add(fromLabel);
+    MenuBar.add(toLabel);
+    
     
     frame.setVisible(true);
     frame.pack();
 
 }
+
 	
 class ExitAction implements ActionListener{
 	@Override
 	public void actionPerformed (ActionEvent e){
 		System.exit(0);
 	}
+}
+
+class resetAction implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(currentFractal.equalsIgnoreCase("Julia")){
+			_main.setJuliaDefault();
+			_array = _main.setArrJulia();
+			_fractalPanel.updateImage(_array);
+		}
+		if(currentFractal.equalsIgnoreCase("MandelBrot")){
+			_main.setMandelBrotDefualt();
+			_array = _main.setArrMandelBrot();
+			_fractalPanel.updateImage(_array);
+		}
+		if(currentFractal.equalsIgnoreCase("BurningShip")){
+			_main.setBurningShipDefault();
+			_array = _main.setArrBurningShip();
+			_fractalPanel.updateImage(_array);
+		}
+		if(currentFractal.equalsIgnoreCase("MultiBrot")){
+			_main.setMultiBrotDefault();
+			_array = _main.setArrMultiBrot();
+			_fractalPanel.updateImage(_array);
+		}
+		
+	}
+	
 }
 
 
@@ -165,8 +210,25 @@ class Button2Action implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		if(e.getActionCommand().equals("Select")){
 			//add code for max esc time
-			double maxTime = Double.parseDouble(escTimeText.getText());
+			int maxTime = Integer.parseInt(escTimeText.getText());
+			_main.setEscTime(maxTime);
 			
+			if(currentFractal.equals("MandelBrot")){
+				_array = _main.setArrMandelBrot();
+				_fractalPanel.updateImage(_array);
+			}
+			if(currentFractal.equals("MultiBrot")){
+				_array = _main.setArrMultiBrot();
+				_fractalPanel.updateImage(_array);
+			}
+			if(currentFractal.equals("BurningShip")){
+				_array = _main.setArrBurningShip();
+				_fractalPanel.updateImage(_array);
+			}
+			if(currentFractal.equals("Julia")){
+				_array = _main.setArrJulia();
+				_fractalPanel.updateImage(_array);
+			}
 			
 		}
 	}
@@ -246,11 +308,12 @@ class FractalsAction implements ActionListener{
 	
 	}
 	 
-	 class mListener implements MouseListener{
+	 class mListener implements MouseListener, MouseMotionListener{
 		 private int startingX;
 			private int endingX;
 			private int startingY;
 			private int endingY;
+			
 
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
@@ -270,8 +333,11 @@ class FractalsAction implements ActionListener{
 
 			public void mousePressed(MouseEvent e) {
 				
+				
 				startingX = e.getX();
 				startingY = e.getY();
+				
+				fromLabel.setText("    From: " + startingX + "," + startingY);
 				
 				System.out.println("Starting x coord = [" + startingX +"] Starting y coord = [" + startingY +"]");
 
@@ -279,15 +345,30 @@ class FractalsAction implements ActionListener{
 
 			public void mouseReleased(MouseEvent e) {
 				
-	
 				
 				endingX = e.getX();
 				endingY = e.getY();
 				
 				_array = _main.setNewCoordinates(startingX, startingY, endingX, endingY, currentFractal);
 				_fractalPanel.updateImage(_array);
+				fromLabel.setText("    From: ");
+				toLabel.setText("    To: ");
 				
 				System.out.println("Starting x coord = [" + endingX +"] Starting y coord = [" + endingY +"]");
+			}
+
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				
+					toLabel.setText("    To: " + e.getX() + "," + e.getY());
+				
+				
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
 			}
 	 }
 		
