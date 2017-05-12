@@ -38,7 +38,9 @@ private static JMenuItem Grays;
 private static  JMenuItem MultiBrot;
 private static  JMenuItem Julia;
 private static JMenu File;
+private static JMenuItem threads;
 private static JFormattedTextField textField;
+private static JFormattedTextField threadText;
 private static JMenuItem EscDistance;
 private static JMenuItem BurningShip;	
 private static JPopupMenu popup;
@@ -47,6 +49,7 @@ private static FractalPanel _fractalPanel;
 private static JMenuItem Exit;
 private static JButton button;
 private static JButton button2;
+private static JButton button3;
 private static int [][]_array;
 private static JFormattedTextField escTimeText;
 private static IndexColorModel _model = ColorModelFactory.createBluesColorModel(18);	
@@ -59,6 +62,7 @@ private JMenuItem Reset;
 public GUI(){
 	
 	_fractalPanel = new FractalPanel();
+	_fractalPanel.setSize(2048, 2048);
 	_main = new Main();
 	
 	JFrame frame = new JFrame("Fractal Images");
@@ -76,23 +80,27 @@ public GUI(){
 	ColorSchemes = new JMenu("ColorSchemes");
 	EscDistance = new JMenu("EscDistance");
 	EscTime = new JMenu("EscTime");
-	 
+	threads = new JMenu("threads");
+	threadText = new JFormattedTextField();
 	textField = new JFormattedTextField();
 	File = new JMenu("File");
 	button = new JButton("Enter");
 	button2 = new JButton("Select");
-			
+	button3 = new JButton("Go");
 	MenuBar.add(Fractals);
 	MenuBar.add(File);
 	MenuBar.add(ColorSchemes);
 	MenuBar.add(EscDistance);
 	MenuBar.add(EscTime);
+	MenuBar.add(threads);
 	escTimeText = new JFormattedTextField();
 	textField = new JFormattedTextField();
 	EscDistance.add(textField);
 	EscDistance.add(button);
 	EscTime.add(escTimeText);
 	EscTime.add(button2);
+	threads.add(threadText);
+	threads.add(button3);
 	
 
 	MandelBrot = new JMenuItem("MandelBrot");
@@ -230,6 +238,15 @@ class Button2Action implements ActionListener{
 				_fractalPanel.updateImage(_array);
 			}
 			
+		}
+	}
+}
+class Button3Action implements ActionListener{
+	@Override
+	public void actionPerformed(ActionEvent e){
+		if(e.getActionCommand().equals("Go")){
+			int dis = Integer.parseInt(threadText.getText());
+			_main.setThread(dis);
 		}
 	}
 }

@@ -24,6 +24,7 @@ public class Main  {
 	double xMax;
 	double yMin;
 	double yMax;
+	int threads;
 	double xCordStart;
 	double xCordEnd;
 	double yCordStart;
@@ -37,6 +38,25 @@ public class Main  {
 		if(x > 0 ){
 			time = x;
 		}
+	}
+	public void setThread(int thread){
+		threads = thread;
+		int extraThreads;
+		extraThreads = 2048%thread;
+		int start = 0;
+		int dif  = (2048/thread)+1;
+		int oDif = 2048/thread;
+		
+		for(int i = 0;i<extraThreads;i++){
+			TheSwingWorker sw = new TheSwingWorker(start,start+dif);
+			start+=dif;
+			
+		}
+		for(int i = 0;i<thread-extraThreads;i++){
+			TheSwingWorker tsw = new TheSwingWorker(dif,dif+oDif);
+			dif+=oDif;
+		}
+		
 	}
 	
 	public int Mandelbrot(double x, double y){//Taking our coordinates as input
