@@ -104,6 +104,7 @@ public GUI(){
 	EscTime.add(button2);
 	threads.add(threadText);
 	threads.add(button3);
+	button3.addActionListener(new Button3Action());
 	
 
 	MandelBrot = new JMenuItem("MandelBrot");
