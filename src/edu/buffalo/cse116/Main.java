@@ -1,5 +1,7 @@
 package edu.buffalo.cse116;
 
+import javax.swing.SwingWorker;
+
 // GENERAL IDEA:
 //Set xCalc = current point's x-coordinate
 //Set yCalc = current point's y-coordinate
@@ -15,7 +17,7 @@ package edu.buffalo.cse116;
 
 //PHASE 1:
    // CALC ESACAPE-TIME FOR EACH FRACTAL
-public class Main  {
+public class Main extends SwingWorker {
 	
 	double xPoint;
 	double yPoint;
@@ -564,6 +566,11 @@ public int newescapeDistanceBurningShip(double x, double y){
 	}
 	int escapeTime = iteration;			
 	return escapeTime;
+}
+@Override
+protected Object doInBackground() throws Exception {
+	// TODO Auto-generated method stub
+	return null;
 }
 }
 
