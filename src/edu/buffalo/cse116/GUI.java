@@ -63,9 +63,12 @@ public GUI(){
 	
 	_fractalPanel = new FractalPanel();
 	_fractalPanel.setSize(2048, 2048);
+	
 	_main = new Main();
 	
 	JFrame frame = new JFrame("Fractal Images");
+	Dimension d = new Dimension(2048,2048);
+	frame.setPreferredSize(d);
 	frame.add(_fractalPanel);
 	
 	
