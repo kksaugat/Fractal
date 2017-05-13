@@ -1,7 +1,5 @@
 package edu.buffalo.cse116;
 
-import javax.swing.SwingWorker;
-
 // GENERAL IDEA:
 //Set xCalc = current point's x-coordinate
 //Set yCalc = current point's y-coordinate
@@ -17,7 +15,7 @@ import javax.swing.SwingWorker;
 
 //PHASE 1:
    // CALC ESACAPE-TIME FOR EACH FRACTAL
-public class Main extends SwingWorker {
+public class Main  {
 	
 	double xPoint;
 	double yPoint;
@@ -173,16 +171,16 @@ public class Main extends SwingWorker {
 //			double yMin = -1.3;
 //			double yMax = 1.3;
 		
-			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
-			double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
+			double xSpacing = (xMax-xMin)/2048; //sets spacing between x values
+			double ySpacing = (yMax-yMin)/2048;	//sets spacing between y values
 			int y = 0;
 			int x = 0;
-			int[][] fractalFinal = new int[512][512]; //records each indicies escapeTime
+			int[][] fractalFinal = new int[2048][2048]; //records each indicies escapeTime
 		
-				while(y < 512 ){ //goes through array 
+				while(y < 2048 ){ //goes through array 
 					x = 0;
 			
-						while(x < 512){
+						while(x < 2048){
 							xPoint = xMin + (x * xSpacing); 
 							yPoint = yMin + (y * ySpacing);
 							fractalFinal[x][y] = Multibrot(xPoint, yPoint); //determines escape time of xPoint/yPoint
@@ -203,16 +201,16 @@ public class Main extends SwingWorker {
 //		double yMin = -.08;
 //		double yMax = .025;
 	
-		double xSpacing = (xMax-xMin)/512; //sets spacing between x values
-		double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
+		double xSpacing = (xMax-xMin)/2048; //sets spacing between x values
+		double ySpacing = (yMax-yMin)/2048;	//sets spacing between y values
 		int y = 0;
 		int x = 0;
-		int[][] fractalFinal = new int[512][512]; //records each indicies escapeTime
+		int[][] fractalFinal = new int[2048][2048]; //records each indicies escapeTime
 	
-			while(y < 512 ){ //goes through array 
+			while(y < 2048 ){ //goes through array 
 				x = 0;
 		
-					while(x < 512){
+					while(x < 2048){
 						xPoint = xMin + (x * xSpacing); //starts at min range and is increased by the position in the row int[X][]*xspacing
 						yPoint = yMin + (y * ySpacing); //same as xPoint but with the y coords
 						fractalFinal[x][y] = BurningShip(xPoint, yPoint); //determines escape time of xPoint/yPoint
@@ -233,17 +231,17 @@ public class Main extends SwingWorker {
 //			double yMin = -1.0;		//sets the ranges for y
 //			double yMax = 1.0;
 	
-			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
-			double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
+			double xSpacing = (xMax-xMin)/2048; //sets spacing between x values
+			double ySpacing = (yMax-yMin)/2048;	//sets spacing between y values
 			int y = 0;
 			int x = 0;
-			int[][] fractalFinal = new int[512][512]; //records each indicies escapeTime
+			int[][] fractalFinal = new int[2048][2048]; //records each indicies escapeTime
 	
-				while(y < 512 ){ //goes through array 
+				while(y < 2048 ){ //goes through array 
 					
 					x = 0;
 		
-						while(x < 512){
+						while(x < 2048){
 							xPoint = xMin + (x * xSpacing); 
 							yPoint = yMin + (y * ySpacing);
 							fractalFinal[x][y] = Julia(xPoint, yPoint); //determines escape time of xPoint/yPoint
@@ -265,16 +263,16 @@ public class Main extends SwingWorker {
 //			double yMin = -1.3;
 //			double yMax = 1.3;
 	
-			double xSpacing = (xMax-xMin)/512; //sets spacing between x values
-			double ySpacing = (yMax-yMin)/512;	//sets spacing between y values
+			double xSpacing = (xMax-xMin)/2048; //sets spacing between x values
+			double ySpacing = (yMax-yMin)/2048;	//sets spacing between y values
 			int y = 0;
 			int x = 0;
-			int[][] fractalFinal = new int[512][512]; //records each indicies escapeTime
+			int[][] fractalFinal = new int[2048][2048]; //records each indicies escapeTime
 	
-				while(y < 512 ){ //goes through array 
+				while(y < 2048 ){ //goes through array 
 					x = 0;
 		
-						while(x < 512){
+						while(x < 2048){
 							xPoint = xMin + (x * xSpacing); 
 							yPoint = yMin + (y * ySpacing);
 							fractalFinal[x][y] = Mandelbrot(xPoint, yPoint); //determines escape time of xPoint/yPoint
@@ -293,7 +291,7 @@ public class Main extends SwingWorker {
 		
 		int[][] retVal = someArray;
 		
-			for(int cursor = 0; cursor < 512; cursor++){
+			for(int cursor = 0; cursor < 20488; cursor++){
 				retVal[newXcoord][cursor] = someArray[rowToCopy][cursor];
 			}
 		
@@ -305,7 +303,7 @@ public class Main extends SwingWorker {
 		
 		int[][] retVal = someArray;
 		
-			for(int cursor = 0; cursor < 512; cursor++){
+			for(int cursor = 0; cursor < 2048; cursor++){
 				retVal[cursor][newYcoord] = someArray[cursor][columnToCopy];
 			}
 		
@@ -321,28 +319,28 @@ public class Main extends SwingWorker {
 		if(arrayName.equalsIgnoreCase("MandelBrot")){
 				
 			if(minX > maxX && minY > maxY){ //
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY < maxY){ //1
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX > maxX && minY < maxY){ //
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY > maxY){ //2
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
 			}	
 				
 				xMin = xCordStart;
@@ -361,28 +359,28 @@ public class Main extends SwingWorker {
 		if(arrayName.equalsIgnoreCase("Julia")){
 			
 			if(minX > maxX && minY > maxY){ 
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY < maxY){ 
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX > maxX && minY < maxY){ 
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY > maxY){ 
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
 				
 			}
 			
@@ -402,28 +400,28 @@ public class Main extends SwingWorker {
 		if(arrayName.equalsIgnoreCase("BurningShip")){
 
 			if(minX > maxX && minY > maxY){ //
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY < maxY){ //1
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX > maxX && minY < maxY){ //
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY > maxY){ //2
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/20448));
 			}
 		
 			xMin = xCordStart;
@@ -438,28 +436,28 @@ public class Main extends SwingWorker {
 		if(arrayName.equalsIgnoreCase("MultiBrot")){
 
 			if(minX > maxX && minY > maxY){ //
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY < maxY){ //1
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX > maxX && minY < maxY){ //
-				xCordStart = xMin + (maxX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (minX * ((xMax-xMin)/512));
-				yCordStart = yMin + (minY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (maxY * ((yMax- yMin)/512));
+				xCordStart = xMin + (maxX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (minX * ((xMax-xMin)/2048));
+				yCordStart = yMin + (minY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (maxY * ((yMax- yMin)/2048));
 			}
 			if(minX < maxX && minY > maxY){ //2
-				yCordStart = yMin + (maxY * ((yMax - yMin)/512));
-				yCordEnd = yMin + (minY * ((yMax- yMin)/512));
-				xCordStart = xMin + (minX * ((xMax-xMin)/512));
-				xCordEnd = xMin + (maxX * ((xMax-xMin)/512));
+				yCordStart = yMin + (maxY * ((yMax - yMin)/2048));
+				yCordEnd = yMin + (minY * ((yMax- yMin)/2048));
+				xCordStart = xMin + (minX * ((xMax-xMin)/2048));
+				xCordEnd = xMin + (maxX * ((xMax-xMin)/2048));
 			}	
 		
 		xMin = xCordStart;
@@ -567,13 +565,4 @@ public int newescapeDistanceBurningShip(double x, double y){
 	int escapeTime = iteration;			
 	return escapeTime;
 }
-@Override
-protected Object doInBackground() throws Exception {
-	// TODO Auto-generated method stub
-	return null;
 }
-}
-
-
-		
-	
